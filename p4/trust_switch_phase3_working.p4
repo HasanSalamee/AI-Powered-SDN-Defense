@@ -97,10 +97,7 @@ control MyIngress(
     inout headers hdr,
     inout metadata meta,
     inout standard_metadata_t standard_metadata)
-{   
-
-    counter(1024, CounterType.packets_and_bytes) traffic_counter;
-
+{
     action drop() {
         mark_to_drop(standard_metadata);
     }
@@ -108,8 +105,7 @@ control MyIngress(
     action ipv4_forward(
         egressSpec_t port,
         macAddr_t dstMac,
-        macAddr_t srcMac,
-	bit<32> counterIndex
+        macAddr_t srcMac
     ) {
         standard_metadata.egress_spec = port;
 
@@ -117,8 +113,6 @@ control MyIngress(
         hdr.ethernet.srcAddr = srcMac;
 
         hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
-
-	traffic_counter.count(counterIndex);
     }
 
     table blocklist {
@@ -144,7 +138,6 @@ control MyIngress(
             ipv4_forward;
             drop;
         }
-	
 
         size = 1024;
         default_action = drop();

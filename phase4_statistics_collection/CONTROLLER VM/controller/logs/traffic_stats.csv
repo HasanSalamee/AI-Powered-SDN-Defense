@@ -1,0 +1,5 @@
+timestamp,flow,source_ip,destination_ip,packets,bytes
+2026-06-18 14:52:13,attacker_to_bank,10.0.0.2,10.0.1.2,5,490
+2026-06-18 14:52:13,bank_to_attacker,10.0.1.2,10.0.0.2,5,490
+2026-06-18 14:52:35,attacker_to_bank,10.0.0.2,10.0.1.2,10,980
+2026-06-18 14:52:35,bank_to_attacker,10.0.1.2,10.0.0.2,10,980
