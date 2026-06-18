@@ -115,20 +115,6 @@ control MyIngress(
         hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
     }
 
-    table blocklist {
-        key = {
-            hdr.ipv4.srcAddr : exact;
-        }
-
-        actions = {
-            drop;
-            NoAction;
-        }
-
-        size = 1024;
-        default_action = NoAction();
-    }
-
     table ipv4_lpm {
         key = {
             hdr.ipv4.dstAddr : lpm;
@@ -145,11 +131,6 @@ control MyIngress(
 
     apply {
         if (hdr.ipv4.isValid()) {
-
-            if (blocklist.apply().hit) {
-                return;
-            }
-
             ipv4_lpm.apply();
         }
     }
