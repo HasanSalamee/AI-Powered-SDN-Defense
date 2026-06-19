@@ -1,0 +1,4 @@
+timestamp,source_ip,destination,protocol,event
+2026-06-19 14:47:30,10.0.0.2,honeypot,ICMP,ICMP echo request
+2026-06-19 14:47:31,10.0.0.2,honeypot,ICMP,ICMP echo request
+2026-06-19 14:47:32,10.0.0.2,honeypot,ICMP,ICMP echo request
