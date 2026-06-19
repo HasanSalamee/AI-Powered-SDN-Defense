@@ -1,0 +1,98 @@
+pkg_info {
+  arch: "v1model"
+}
+tables {
+  preamble {
+    id: 44046562
+    name: "MyIngress.blocklist"
+    alias: "blocklist"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.ipv4.srcAddr"
+    bitwidth: 32
+    match_type: EXACT
+  }
+  action_refs {
+    id: 25652968
+  }
+  action_refs {
+    id: 21257015
+  }
+  size: 1024
+}
+tables {
+  preamble {
+    id: 37375156
+    name: "MyIngress.ipv4_lpm"
+    alias: "ipv4_lpm"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.ipv4.dstAddr"
+    bitwidth: 32
+    match_type: LPM
+  }
+  action_refs {
+    id: 28792405
+  }
+  action_refs {
+    id: 25652968
+  }
+  size: 1024
+}
+actions {
+  preamble {
+    id: 21257015
+    name: "NoAction"
+    alias: "NoAction"
+    annotations: "@noWarn(\"unused\")"
+  }
+}
+actions {
+  preamble {
+    id: 25652968
+    name: "MyIngress.drop"
+    alias: "drop"
+  }
+}
+actions {
+  preamble {
+    id: 28792405
+    name: "MyIngress.ipv4_forward"
+    alias: "ipv4_forward"
+  }
+  params {
+    id: 1
+    name: "port"
+    bitwidth: 9
+  }
+  params {
+    id: 2
+    name: "dstMac"
+    bitwidth: 48
+  }
+  params {
+    id: 3
+    name: "srcMac"
+    bitwidth: 48
+  }
+  params {
+    id: 4
+    name: "counterIndex"
+    bitwidth: 32
+  }
+}
+counters {
+  preamble {
+    id: 309159416
+    name: "MyIngress.traffic_counter"
+    alias: "traffic_counter"
+  }
+  spec {
+    unit: BOTH
+  }
+  size: 1024
+}
+type_info {
+}
