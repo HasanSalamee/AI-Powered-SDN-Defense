@@ -1,0 +1,6 @@
+timestamp,active_ip,dropped_ips,mode
+2026-06-27 08:25:30,10.0.1.100,10.0.1.101|10.0.1.102,initial-startup-shuffle
+2026-06-27 08:26:00,10.0.1.101,10.0.1.100|10.0.1.102,periodic-30-seconds-shuffle
+2026-06-27 08:26:30,10.0.1.102,10.0.1.100|10.0.1.101,periodic-30-seconds-shuffle
+2026-06-27 08:27:01,10.0.1.100,10.0.1.101|10.0.1.102,periodic-30-seconds-shuffle
+2026-06-27 08:27:31,10.0.1.101,10.0.1.100|10.0.1.102,periodic-30-seconds-shuffle

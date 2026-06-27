@@ -64,7 +64,7 @@ parser MyParser(
 }
 
 /* CHECKSUM VERIFY */
-
+	
 control MyVerifyChecksum(
     inout headers hdr,
     inout metadata meta)
@@ -132,7 +132,7 @@ control MyIngress(
         hdr.ethernet.dstAddr = dstMac;
         hdr.ethernet.srcAddr = srcMac;
 
-        hdr.ipv4.dstAddr = honeypotIp;
+       
         hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
 
         traffic_counter.count(counterIndex);

@@ -607,25 +607,6 @@
           "parameters" : [
             {
               "type" : "field",
-              "value" : ["ipv4", "dstAddr"]
-            },
-            {
-              "type" : "runtime_data",
-              "value" : 3
-            }
-          ],
-          "source_info" : {
-            "filename" : "p4/trust_switch.p4",
-            "line" : 135,
-            "column" : 8,
-            "source_fragment" : "hdr.ipv4.dstAddr = honeypotIp"
-          }
-        },
-        {
-          "op" : "assign",
-          "parameters" : [
-            {
-              "type" : "field",
               "value" : ["ipv4", "ttl"]
             },
             {
